@@ -35,6 +35,20 @@ void Controller::HandleInput(bool &running, Snake &snake) const {
           ChangeDirection(snake, Snake::Direction::kRight,
                           Snake::Direction::kLeft);
           break;
+        case SDLK_KP_SPACE: 
+          if( running == true )
+             {
+              //Stop the timer
+               running = false;
+              //       start = 0;
+             }
+          else
+             {
+              //Start the timer
+              running = true;
+              // start = SDL_GetTicks();
+             }
+          break; 
       }
     }
   }

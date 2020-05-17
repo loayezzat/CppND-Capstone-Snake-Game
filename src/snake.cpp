@@ -6,17 +6,18 @@ void Snake::Update() {
   SDL_Point prev_cell{
       static_cast<int>(head_x),
       static_cast<int>(
-          head_y)};  // We first capture the head's cell before updating.
+          head_y)};  //Capture head's cell before updating
   UpdateHead();
   SDL_Point current_cell{
       static_cast<int>(head_x),
-      static_cast<int>(head_y)};  // Capture the head's cell after updating.
+      static_cast<int>(head_y)};  // Capturehead's cell after updating
 
   // Update all of the body vector items if the snake head has moved to a new
   // cell.
   if (current_cell.x != prev_cell.x || current_cell.y != prev_cell.y) {
     UpdateBody(current_cell, prev_cell);
   }
+  updateLevel();
 }
 
 void Snake::UpdateHead() {
@@ -61,11 +62,15 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
       alive = false;
     }
   }
+  Obstacle obs(screen_width, screen_height, grid_width, grid_height);
+  if( obs.isObstacle(current_head_cell.x, current_head_cell.y )== true){
+     alive = false;
+  }
+   
 }
 
 void Snake::GrowBody() { growing = true; }
 
-// Inefficient method to check if cell is occupied by snake.
 bool Snake::SnakeCell(int x, int y) {
   if (x == static_cast<int>(head_x) && y == static_cast<int>(head_y)) {
     return true;
@@ -76,4 +81,13 @@ bool Snake::SnakeCell(int x, int y) {
     }
   }
   return false;
+}
+
+void Snake::updateLevel(){
+  level = size /5 + 1  ; 
+  if (level > 4 ) level = 4 ; 
+}
+
+bool Snake::isAlive(){
+ return alive ; 
 }
