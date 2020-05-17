@@ -8,6 +8,25 @@ The Capstone Project gives you a chance to integrate what you've learned through
 
 In this project, you can build your own C++ application or extend this Snake game, following the principles you have learned throughout this Nanodegree Program. This project will demonstrate that you can independently create applications using a wide range of C++ features.
 
+## Code Structure 
+The code is composed of 4 main classes Game, Snake, Renderer, Obstacle, Controller.
+The main file inistanciate Game,Renderer,Controller objects , then we pass the last three to the Game::Run method.
+The Game class has a Obstacle object.
+
+## New Features
+The Game now has four different levels, when you move to the next level you meet different obstacles and the gameplay becomes harder.
+
+## Rubric
+The project meets the following rubric points:
+* Loops, Functions, I/O
+  * The project demonstrates an understanding of C++ functions and control structures.
+* Object Oriented Programming
+  * The project uses Object Oriented Programming techniques.
+  * Classes use appropriate access specifiers for class members.
+  * Class constructors utilize member initialization lists.
+  * Classes abstract implementation details from their interfaces.
+
+
 ## Dependencies for Running Locally
 * cmake >= 3.7
   * All OSes: [click here for installation instructions](https://cmake.org/install/)
@@ -18,6 +37,7 @@ In this project, you can build your own C++ application or extend this Snake gam
 * SDL2 >= 2.0
   * All installation instructions can be found [here](https://wiki.libsdl.org/Installation)
   * Note that for Linux, an `apt` or `apt-get` installation is preferred to building from source.
+  sudo apt-get install libsdl2-dev
 * gcc/g++ >= 5.4
   * Linux: gcc / g++ is installed by default on most Linux distros
   * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
@@ -29,3 +49,6 @@ In this project, you can build your own C++ application or extend this Snake gam
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
 4. Run it: `./SnakeGame`.
+
+### Resources
+The SDL Library webpage can be found [here](https://www.libsdl.org/)
